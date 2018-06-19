@@ -1,0 +1,30 @@
+{
+  "settings":{
+    "index":{
+      "analysis":{
+        "analyzer":{
+          "korean":{
+            "type":"custom",
+            "tokenizer":"seunjeon_default_tokenizer"
+          }
+        },
+        "tokenizer": {
+          "seunjeon_default_tokenizer": {
+            "type": "mecab_ko_standard_tokenizer",
+            "mecab_args": "/usr/local/lib/mecab/dic/mecab-ko-dic"
+          }
+        }
+      }
+    }
+  },
+  "mappings":{
+  "board":{
+   "properties":{
+    "name":{"type":"text","analyzer": "korean"},
+    "title":{"type":"text","analyzer": "korean"},
+    "content":{"type":"text","index":"not_analyzed"},
+    "date":{"type":"text","index":"not_analyzed"}
+   }
+  }
+ }
+}
